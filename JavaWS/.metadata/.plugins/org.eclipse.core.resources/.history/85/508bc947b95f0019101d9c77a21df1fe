@@ -1,0 +1,24 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader jin = new BufferedReader(new InputStreamReader(System.in));
+		
+		int N = Integer.parseInt(jin.readLine());
+		
+		int[] fenceLengths = new int[N];
+		
+		String[] buf = jin.readLine().split(" ");
+		for (int i = 0; i < N; i++) {
+			fenceLengths[i] = Integer.parseInt(buf[i]);
+		}
+		
+		
+		
+		jin.close();
+	}
+
+}

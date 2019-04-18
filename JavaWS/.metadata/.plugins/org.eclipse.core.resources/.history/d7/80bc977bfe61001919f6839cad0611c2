@@ -1,0 +1,62 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+class Station {
+	public int numPassengers;
+	public Station(int passengers) {
+		this.numPassengers = passengers;
+	}
+}
+
+class MLine {
+	// instead of moving the passengers in the stations, simulate using an offset
+	public int offset = 0;
+	private List<Station> stations = new ArrayList<Station>();
+	public void addStation(Station station) {
+		this.stations.add(station);
+	}
+	public void moveTrains() {
+		
+	}
+}
+
+
+public class Main {
+	
+	private static int N, M, Q;
+	
+	private static List<Station> stationRefs = new ArrayList<Station>();
+	
+	
+	private static List<MLine> readInStructure(BufferedReader jin) throws Exception {
+		
+		String[] details = jin.readLine().split(" ");
+		N = Integer.parseInt(details[0]); M = Integer.parseInt(details[1]); Q = Integer.parseInt(details[2]);
+		
+		List<MLine> lines = new ArrayList<MLine>(M);
+		for (int i = 0; i < M; i++) {
+			lines.add(new MLine());
+		}
+		
+		String[] stationLines = jin.readLine().split(" ");
+		String[] initialPassengers = jin.readLine().split(" ");
+		for (int i = 0; i < N; i++) {
+			int lineNum = Integer.parseInt(stationLines[i]);
+			lines.get(lineNum - 1).addStation(new Station(Integer.parseInt(initialPassengers[i]))); 
+		}
+		
+		return null;
+	}
+	
+
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader jin = new BufferedReader(new InputStreamReader(System.in));
+
+		
+		jin.close();
+	}
+
+}

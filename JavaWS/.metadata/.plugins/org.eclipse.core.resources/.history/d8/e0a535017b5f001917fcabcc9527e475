@@ -1,0 +1,49 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+	
+	// since getNumberOfTrees() calls itself, and is very likely to have similar trees, and stuff
+	private static Map<Integer, Long> alreadyFound = new HashMap<Integer, Long>();
+	private static long[] precomputed = new long[100];
+
+	public static void main(String[] args) {
+		
+		for (int i = 1; i <= 100; i++) {
+			precomputed[i - 1] = getNumberOfTrees(i);
+			System.out.println(precomputed[i - 1]);
+		}
+		
+		Scanner jin = new Scanner(System.in);
+		
+		int N = jin.nextInt();
+		
+		System.out.println(getNumberOfTrees(N));
+	
+		jin.close();
+	}
+	
+	private static long getNumberOfTrees(int weight) {
+		// quoting the CCC: A perfectly balanced tree of weight 1 always consists of a single node
+		/*if (weight == 1) { 
+			return 1;
+		}*/
+		if (weight <= 100) {
+			return precomputed[weight - 1];
+		}
+		if (alreadyFound.containsKey(weight)) {
+			return alreadyFound.get(weight);
+		}
+		
+		long numTrees = 0;
+		// where k is number of subtrees (specified in problem)
+		for (int k = 2; k <= weight; k++) {
+			int weightOfEachSubTree = weight / k;
+			numTrees += getNumberOfTrees(weightOfEachSubTree); // recursive call until single node
+		}
+		alreadyFound.put(weight, numTrees);
+		return numTrees;
+	}
+
+}

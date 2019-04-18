@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Station {
+	public List<Integer> trains = new ArrayList<Integer>();;
+	public Station(int train) {
+		trains.add(train);
+	}
+}
+
+class MLine {
+	public List<Station> stations;
+	
+}
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

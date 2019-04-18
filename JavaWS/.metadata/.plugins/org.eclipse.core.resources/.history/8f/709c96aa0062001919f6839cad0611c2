@@ -1,0 +1,90 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+class Station {
+	public int numPassengers;
+	public Station(int passengers) {
+		this.numPassengers = passengers;
+	}
+}
+
+class MLine {
+	private List<Station> stations = new ArrayList<Station>();
+	public void addStation(Station station) {
+		this.stations.add(station);
+	}
+	public void moveTrains() {
+		int len = stations.size();
+		int a = stations.get(len - 1).numPassengers;
+		for (int i = 1; i < len; i++) {
+			stations.get(i).numPassengers = stations.get(i - 1).numPassengers;
+		}
+		stations.get(0).numPassengers = a;
+	}
+}
+
+
+public class Main {
+	
+	private static int N, M, Q;
+	
+	private static List<Station> stationRefs = new ArrayList<Station>();
+	
+	
+	private static List<MLine> readInStructure(BufferedReader jin) throws Exception {
+		
+		String[] details = jin.readLine().split(" ");
+		N = Integer.parseInt(details[0]); M = Integer.parseInt(details[1]); Q = Integer.parseInt(details[2]);
+		
+		List<MLine> lines = new ArrayList<MLine>(M);
+		for (int i = 0; i < M; i++) {
+			lines.add(new MLine());
+		}
+		
+		String[] stationLines = jin.readLine().split(" ");
+		String[] initialPassengers = jin.readLine().split(" ");
+		for (int i = 0; i < N; i++) {
+			int lineNum = Integer.parseInt(stationLines[i]);
+			Station station = new Station(Integer.parseInt(initialPassengers[i]));
+			stationRefs.add(station);
+			lines.get(lineNum - 1).addStation(station); 
+		}
+		
+		return lines;
+	}
+	
+
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader jin = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+
+		List<MLine> lines = readInStructure(jin);
+		
+		
+		for (int i = 0; i < Q; i++) {
+			String[] command = jin.readLine().split(" ");
+			if (command.length == 3) { // survey
+				// from l -> r
+				int l = Integer.parseInt(command[1]), r = Integer.parseInt(command[2]);
+				int total = 0;
+				for (int j = l; j <= r; j++) {
+					total += stationRefs.get(j).numPassengers;
+				}
+				sb.append(total);
+				sb.append('\n');
+			}
+			else { // operate line
+				int x = Integer.parseInt(command[1]);
+				lines.get(x - 1).moveTrains();
+			}
+		}
+		
+		System.out.println(sb.toString());
+		
+		jin.close();
+	}
+
+}

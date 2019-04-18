@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Station {
+	public List<Integer> trains = new ArrayList<Integer>();
+	public Station(int train) {
+		trains.add(train);
+	}
+	public int sumPassengers() {
+		int ret = 0;
+		for (int train : this.trains) {
+			ret += train;
+		}
+		return ret;
+	}
+}
+
+class MLine {
+	private List<Station> stations = new ArrayList<Station>();
+	public void addStation(Station station) {
+		this.stations.add(station);
+	}
+}
+
+
+public class Main {
+	
+	private static int N, M, Q;
+	
+	private static List<Station> stationRefs = new ArrayList<Station>();
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

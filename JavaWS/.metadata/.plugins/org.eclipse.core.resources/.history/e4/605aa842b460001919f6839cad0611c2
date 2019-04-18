@@ -1,0 +1,42 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+	
+	// fenceHeight -> numberOfFencesWithThatHeight
+	private static Map<Integer, Integer> numFencesWithLength = new HashMap<Integer, Integer>();
+	
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader jin = new BufferedReader(new InputStreamReader(System.in));
+
+		
+		getCountForEachLengthOfWood(jin);
+		
+		
+		jin.close();
+	}
+	
+	private static void ifandd() {
+		
+	}
+	
+	private static void getCountForEachLengthOfWood(BufferedReader jin) throws Exception {
+		int N = Integer.parseInt(jin.readLine());
+		String[] toks = jin.readLine().split(" ");
+		
+		for (int i = 0; i < N; i++) {
+			int woodLen = Integer.parseInt(toks[i]);
+			
+			if (numFencesWithLength.containsKey(woodLen)) {
+				numFencesWithLength.put(woodLen, numFencesWithLength.get(woodLen) + 1);
+			} 
+			else {
+				numFencesWithLength.put(woodLen, 1);
+			}
+		}
+	}
+
+}

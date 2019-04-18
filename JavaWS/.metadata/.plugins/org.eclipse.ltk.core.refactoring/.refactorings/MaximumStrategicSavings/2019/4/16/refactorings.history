@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;g&apos; in &apos;Main.assembleGraph(...)&apos; to &apos;planetGraph&apos;&#x0A;- Original project: &apos;MaximumStrategicSavings&apos;&#x0A;- Original element: &apos;Main.assembleGraph(BufferedReader).g&apos;&#x0A;- Renamed element: &apos;g&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;g&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Main.java[Main~assembleGraph~QBufferedReader;@g!8789!8819!8795!8795!QGraph;!0!false" name="planetGraph" references="true" stamp="1555417268583" version="1.0"/>
+</session>

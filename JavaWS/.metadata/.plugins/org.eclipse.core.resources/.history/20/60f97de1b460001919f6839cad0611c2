@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+	
+	// uniqueWoodPieceLengths -> number of these that exist
+	private static Map<Integer, Integer> numWoodWithLength = new HashMap<Integer, Integer>();
+	
+	// uniqueBoardLengths -> number of boards with this height
+	private static Map<Integer, Integer> numBoardsWithHeight = new HashMap<Integer, Integer>();
+	
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader jin = new BufferedReader(new InputStreamReader(System.in));
+
+		
+		getCountForEachLengthOfWood(jin);
+		
+		
+		jin.close();
+	}
+	
+	private static void getCountForEachHeightBoard() {
+		
+		List<Integer> unique
+		
+		// compare each piece of wood against all others
+		for (int i = 0;)
+		
+	}
+	
+	private static void getCountForEachLengthOfWood(BufferedReader jin) throws Exception {
+		int N = Integer.parseInt(jin.readLine());
+		String[] toks = jin.readLine().split(" ");
+		
+		for (int i = 0; i < N; i++) {
+			int woodLen = Integer.parseInt(toks[i]);
+			
+			if (numWoodWithLength.containsKey(woodLen)) {
+				numWoodWithLength.put(woodLen, numWoodWithLength.get(woodLen) + 1);
+			} 
+			else {
+				numWoodWithLength.put(woodLen, 1);
+			}
+		}
+	}
+
+}

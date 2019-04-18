@@ -1,0 +1,100 @@
+09:07:13 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 
+09:08:14 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+../balancedtrees.cpp:43:14: warning: format specifies type 'int *' but the argument has type 'uint' (aka 'unsigned int') [-Wformat]
+        scanf("%d", N);
+               ~~   ^
+../balancedtrees.cpp:43:14: warning: variable 'N' is uninitialized when used here [-Wuninitialized]
+        scanf("%d", N);
+                    ^
+../balancedtrees.cpp:42:8: note: initialize the variable 'N' to silence this warning
+        uint N;
+              ^
+               = 0
+2 warnings generated.
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 
+09:08:29 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+../balancedtrees.cpp:43:15: warning: format specifies type 'unsigned int *' but the argument has type 'uint' (aka 'unsigned int') [-Wformat]
+        scanf("%ud", N);
+               ~~    ^
+../balancedtrees.cpp:43:15: warning: variable 'N' is uninitialized when used here [-Wuninitialized]
+        scanf("%ud", N);
+                     ^
+../balancedtrees.cpp:42:8: note: initialize the variable 'N' to silence this warning
+        uint N;
+              ^
+               = 0
+2 warnings generated.
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 
+09:09:00 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 
+09:09:07 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+make: Nothing to be done for `all'.
+09:21:19 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 
+09:21:24 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+make: Nothing to be done for `all'.
+09:22:13 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 

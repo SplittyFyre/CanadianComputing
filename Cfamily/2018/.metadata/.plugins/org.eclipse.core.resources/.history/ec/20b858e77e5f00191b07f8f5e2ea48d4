@@ -1,0 +1,25 @@
+/*
+ * balancedtrees.cpp
+ *
+ *  Created on: Apr 15, 2019
+ *      Author: oscarsplitfire
+ */
+
+
+#include <stdio.h>
+#include <unordered_map>
+
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+std::unordered_map<uint, ulong> alreadyFound;
+
+
+
+int main(void) {
+
+
+
+	return 0;
+}
+

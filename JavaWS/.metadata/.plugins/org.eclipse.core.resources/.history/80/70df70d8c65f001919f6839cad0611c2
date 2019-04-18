@@ -1,0 +1,96 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+
+class Edge implements Comparable<Edge> {
+	
+	private final int v, w, weight;
+	
+	public Edge(int v, int w, int weight) {
+		this.v = v;
+		this.w = w;
+		this.weight = weight;
+	}
+	
+	public int either() {
+		return v;
+	}
+	
+	public int other(int vtx) { // returns other vertex
+		return vtx == v ? w : v;
+	}
+
+	@Override
+	public int compareTo(Edge that) {
+		if (this.weight < that.weight) {
+			return -1;
+		}
+		else if (this.weight > that.weight) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	
+}
+
+class Graph {
+	
+	public int vtxcnt;
+	private List<Edge>[] adj; // adjacency matrix
+	
+	@SuppressWarnings("unchecked")
+	public Graph(int vtxcnt) {
+		this.vtxcnt = vtxcnt;
+		adj = new ArrayList[vtxcnt];
+		for (int i = 0; i < vtxcnt; i++) {
+			adj[i] = new ArrayList<Edge>();
+		}
+	}
+	
+	public void addEdge(Edge e) {
+		int v = e.either();
+		int w = e.other(v);
+		adj[v].add(e);
+		adj[w].add(e);
+	}
+	
+	public void addEdge(int v, int w, int weight) {
+		addEdge(new Edge(v, w, weight));
+	}
+	
+	public List<Edge> getadj(int v) {
+		return adj[v];
+	}
+
+}
+
+
+
+
+class MinSpanningTree {
+	
+	private List<Edge> mst = new ArrayList<Edge>();
+	
+	public MinSpanningTree(Graph g) {
+		
+		PriorityQueue<Edge> pq = new PriorityQueue<Edge>();
+		
+		
+	}
+	
+}
+
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

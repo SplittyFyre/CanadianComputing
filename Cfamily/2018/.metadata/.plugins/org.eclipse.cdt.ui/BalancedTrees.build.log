@@ -1,0 +1,15 @@
+09:22:13 **** Incremental Build of configuration Debug for project BalancedTrees ****
+make all 
+Building file: ../balancedtrees.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"balancedtrees.d" -MT"balancedtrees.o" -o "balancedtrees.o" "../balancedtrees.cpp"
+Finished building: ../balancedtrees.cpp
+ 
+Building target: BalancedTrees
+Invoking: MacOS X C++ Linker
+g++  -o "BalancedTrees"  ./balancedtrees.o   
+Finished building target: BalancedTrees
+ 
+
+09:22:13 Build Finished (took 349ms)
+

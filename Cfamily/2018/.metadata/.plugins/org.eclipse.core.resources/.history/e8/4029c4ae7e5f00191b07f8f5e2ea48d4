@@ -1,0 +1,23 @@
+/*
+ * balancedtrees.cpp
+ *
+ *  Created on: Apr 15, 2019
+ *      Author: oscarsplitfire
+ */
+
+
+#include <stdio.h>
+#include <unordered_map>
+
+
+std::unordered_map<uint long> alreadyFound;
+
+
+
+int main(void) {
+
+
+
+	return 0;
+}
+

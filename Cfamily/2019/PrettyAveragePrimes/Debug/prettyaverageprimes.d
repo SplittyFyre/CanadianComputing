@@ -1,0 +1,1 @@
+prettyaverageprimes.o: ../prettyaverageprimes.cpp

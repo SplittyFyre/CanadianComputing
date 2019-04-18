@@ -1,0 +1,46 @@
+/*
+ * balancedtrees.cpp
+ *
+ *  Created on: Apr 15, 2019
+ *      Author: oscarsplitfire
+ */
+
+
+#include <stdio.h>
+#include <unordered_map>
+
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+std::unordered_map<uint, ulong> alreadyFound;
+
+// actually supposed to be longs, but are small and can just cast
+uint precomputed[] = {1, 1, 2, 3, 4, 6, 7, 9, 11, 13, 14, 19, 20, 22, 25, 29, 30, 36, 37, 42, 45, 47, 48, 60, 62, 64, 68, 73, 74, 84, 85, 93, 96, 98, 101, 119, 120, 122, 125, 137, 138, 148, 149, 154, 162, 164, 165, 193, 195, 201, 204, 209, 210, 226, 229, 241, 244, 246, 247, 278, 279, 281, 289, 305, 308, 318, 319, 324, 327, 337, 338, 388, 389, 391, 399, 404, 407, 417, 418, 446, 454, 456, 457, 488, 491, 493, 496, 508, 509, 545, 548, 553, 556, 558, 561, 625, 626, 632, 640, 658};
+
+
+ulong getNumberOfTrees(uint weight) {
+	if (weight <= 100) {
+		return precomputed[weight - 1];
+	}
+
+	if (alreadyFound.count(weight)) {
+		return alreadyFound[weight];
+	}
+
+	ulong numTrees = 0;
+	for (uint k = 2; k <= weight; k++) {
+		uint weightOfEachSubTree = weight / k;
+		numTrees += getNumberOfTrees(weightOfEachSubTree); // recursive call until single node
+	}
+	alreadyFound[weight] = numTrees;
+	return numTrees;
+}
+
+
+int main(void) {
+
+
+
+	return 0;
+}
+
