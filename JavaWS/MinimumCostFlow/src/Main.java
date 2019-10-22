@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -182,6 +183,38 @@ class UF {
 
 
 
+class Pair {
+	public int one, two;
+	public Pair(int one, int two) {
+		this.one = one;
+		this.two = two;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + one;
+		result = prime * result + two;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pair other = (Pair) obj;
+		if (one != other.one)
+			return false;
+		if (two != other.two)
+			return false;
+		return true;
+	}
+	
+}
+
 
 // aka Pipe, has special field (boolean) isactive
 class Edge implements Comparable<Edge> {
@@ -311,6 +344,7 @@ class MinSpanningTree {
 			
 			// found edge
 			e.isActive = true;
+			//System.out.println("thou art a saucy boy " + e.either() + " " + e.other(e.either()));
 
 			if (!marked[v]) {
 				prim_visit(dest, v, marked, pq);
@@ -349,13 +383,19 @@ public class Main {
 			String[] toks = jin.readLine().split(" ");
 			int a = Integer.parseInt(toks[0]), b = Integer.parseInt(toks[1]), c = Integer.parseInt(toks[2]);
 			
-			graph.addEdge(a - 1, b - 1, c, i < N - 1);
+			boolean it = false;
+			if (i < N - 1) {
+				it = true;
+				//System.out.println("yuuup!");
+			}
+			
+			graph.addEdge(a - 1, b - 1, c, it);
 		}
 		
 		return graph;
 	}
 	
-	
+	private static HashSet<Pair> alreadyDidEdges = new HashSet<Pair>();
 
 	public static void main(String[] args) throws Exception {
 		
@@ -366,7 +406,6 @@ public class Main {
 		Graph optimal = MinSpanningTree.markMSTOnGraph(graph);
 		
 		int offsNeeded = 0, onsNeeded = 0;
-		
 		for (int i = 0; i < graph.getAllEdges().length; i++) {
 			List<Edge> normal = graph.getAllEdges()[i];
 			List<Edge> opt = optimal.getAllEdges()[i];
@@ -374,17 +413,29 @@ public class Main {
 				Edge n = normal.get(j);
 				Edge o = opt.get(j);
 				
+		
+				Pair vtxPair = new Pair(n.either(), n.other(n.either()));
+				if (alreadyDidEdges.contains(vtxPair)) {
+					continue;
+				}
+				else {
+					alreadyDidEdges.add(vtxPair);
+				}
+				
+				//System.out.printf("n:%b o:%b   %d %d\n", n.isActive, o.isActive, n.either(), n.other(n.either()));
+
+				
 				if (n.isActive != o.isActive) {
-					//System.out.printf("n:%b o:%b   %d %d\n", n.isActive, o.isActive, n.either(), n.other(n.either()));
-					if (o.isActive) 
+					//System.out.printf( "n:%b o:%b   %d %d\n", n.isActive, o.isActive, n.either(), n.other(n.either()));
+					if (o.isActive)
 						onsNeeded++;
-					else 
+					else
 						offsNeeded++;
 				}
 			}
 		}
 		
-		System.out.println(Math.max(onsNeeded, offsNeeded));
+		System.out.println(Math.max(onsNeeded, offsNeeded) - 1);
 		
 		jin.close();
 	}
